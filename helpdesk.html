@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="CWA Help Desk Appointment booking page">
+    <meta name="keywords" content="CWA, Help Desk, Appointment, Support">
+    <meta name="author" content="Your Name">
+    <title>CWA Help Desk Appointment</title>
+</head>
+<body>
+    <header>
+        <img src="logo.png" alt="CWA Help Desk Logo" style="width:150px; display:block; margin:0 auto;">
+        <h1>CWA Help Desk Appointment</h1>
+    </header>
+
+    <form action="submit_form.php" method="post">
+        <fieldset>
+            <legend>Personal Information</legend>
+            
+            <label for="name">Full Name:</label>
+            <input type="text" id="name" name="name" required 
+                   pattern="[A-Za-z\s]+" 
+                   placeholder="Enter your full name"><br><br>
+
+            <label for="email">Email Address:</label>
+            <input type="email" id="email" name="email" required 
+                   placeholder="example@domain.com"><br><br>
+
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" required 
+                   pattern="\d{10}" 
+                   placeholder="10-digit number"><br><br>
+        </fieldset>
+
+        <fieldset>
+            <legend>Appointment Details</legend>
+            
+            <label for="date">Date:</label>
+            <input type="date" id="date" name="date" required 
+                   placeholder="YYYY-MM-DD"><br><br>
+
+            <label for="time">Time:</label>
+            <input type="time" id="time" name="time" required 
+                   pattern="([01]?[0-9]|2[0-3]):[0-5][0-9]" 
+                   placeholder="HH:MM"><br><br>
+
+            <label for="description">Description:</label><br>
+            <textarea id="description" name="description" rows="4" cols="40" 
+                      placeholder="Briefly describe your issue..." required></textarea>
+        </fieldset>
+
+        <fieldset>
+            <legend>Support Type</legend>
+            
+            <label><input type="radio" name="support" value="technical" required> Technical</label><br>
+            <label><input type="radio" name="support" value="administrative"> Administrative</label><br>
+            <label><input type="radio" name="support" value="other"> Other</label>
+        </fieldset>
+
+        <fieldset>
+            <legend>Preferred Contact Method</legend>
+            <select name="contact_method" required>
+                <option value="">Please Select</option>
+                <option value="email">Email</option>
+                <option value="phone">Phone</option>
+                <option value="sms">SMS</option>
+            </select>
+        </fieldset>
+
+        <fieldset>
+            <legend>Additional Options</legend>
+            
+            <label><input type="checkbox" name="notifications[]" value="email" checked="checked"> Email Notifications</label><br>
+            <label><input type="checkbox" name="notifications[]" value="sms"> SMS Notifications</label>
+        </fieldset>
+
+        <br>
+        <input type="submit" value="Book Appointment">
+        <input type="reset" value="Clear Form">
+    </form>
+</body>
+</html>
